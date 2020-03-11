@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #0b5fef;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding-top: 15px;
+  color: white;
+  line-height: 7.5px;
+  padding-bottom: 15px;
+}
+
+.footerHeading {
+  color: white;
+}
+
+.topic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33.3%;
+}
+
+.keypoints {
+  color: white;
+}
