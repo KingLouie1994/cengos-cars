@@ -20,6 +20,11 @@ const Footer = () => {
       </div>
       <div className={styles.topic}>
         <div className={styles.termin}>
+          <h3 className={styles.footerHeading}>Termin</h3>
+          <br /> <br />
+          <br /> <br />
+          <br /> <br />
+          <br /> <br />
           <p>
             Bitte vereinbaren Sie mit uns einen <br /> <br />
             Besichtigungstermin, wir freuen uns auf Sie. <br /> <br /> <br />
