@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  background-color: #0c17f2;
+  width: 100%;
+  height: auto;
+}
+
+.logo {
+  width: 90px;
+  height: auto;
+  color: white;
+  margin-left: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.languageFlag {
+  width: 40px;
+  height: auto;
+  margin-right: 15px;
+  border-radius: 5px;
+}
