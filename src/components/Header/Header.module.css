@@ -16,6 +16,10 @@
   padding-bottom: 10px;
 }
 
+.flags {
+  margin-right: 40px;
+}
+
 .languageFlag {
   width: 40px;
   height: auto;
