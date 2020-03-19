@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5%;
+}
+
+.introduction {
+  width: 70%;
+  text-align: center;
+  padding: 2%;
+  border: solid 2px #0c17f2;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.5);
+}
+
+.introduction:hover {
+  box-shadow: 0 5px 10px 0px rgba(24, 28, 231, 0.5);
+  transition: 0.5s;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Footer.module.css";
+import { PhoneOutlined, MailOutlined } from "@ant-design/icons";
 
 const Footer = () => {
   return (
@@ -14,16 +15,19 @@ const Footer = () => {
           <p>220148 Hamburg</p>
           <br />
           <br />
-          <p>Tel: +49 123 456 789 10</p>
-          <p>cengo@traumautos.de</p>
+          <p>
+            <PhoneOutlined />: +49 123 456 789 10
+          </p>
+          <p>
+            <MailOutlined />: cengo@traumautos.de
+          </p>
         </div>
       </div>
       <div className={styles.topic}>
         <div className={styles.termin}>
           <h3 className={styles.footerHeading}>Termin</h3>
           <br /> <br />
-          <br /> <br />
-          <br /> <br />
+          <br /> <br /> 
           <br /> <br />
           <p>
             Bitte vereinbaren Sie mit uns einen <br /> <br />

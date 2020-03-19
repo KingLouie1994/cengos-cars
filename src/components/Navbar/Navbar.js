@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import styles from "./Navbar.module.css";
 import {
@@ -19,20 +20,26 @@ const Navbar = () => {
         className={styles.menu}
       >
         <Menu.Item key="1">
-          <HomeFilled />
-          Home
+          <Link to="/">
+            <HomeFilled /> Home
+          </Link>
         </Menu.Item>
+
         <Menu.Item key="2">
-          <CarFilled />
-          Fahrzeugangebot
+          <Link to="/caroffers">
+            <CarFilled /> Fahrzeugangebot
+          </Link>
         </Menu.Item>
+
         <Menu.Item key="3">
-          <CustomerServiceFilled />
-          Unsere Services
+          <Link to="services">
+            <CustomerServiceFilled /> Unsere Services
+          </Link>
         </Menu.Item>
         <Menu.Item key="4">
-          <CrownOutlined />
-          Über Uns
+          <Link to="/about">
+            <CrownOutlined /> Über Uns
+          </Link>
         </Menu.Item>
       </Menu>
     </Layout>
