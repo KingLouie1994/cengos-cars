@@ -9,7 +9,6 @@ const Header = () => {
       <span className={styles.flags}>
         <Flag className={styles.languageFlag} country="de"/>
         <Flag className={styles.languageFlag} country="gb"/>
-        <Flag className={styles.languageFlag} country="ae"/>
       </span>
     </div>
   );
