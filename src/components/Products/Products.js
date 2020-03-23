@@ -6,6 +6,8 @@ import Filter from "../Filter/Filter";
 const Products = () => {
   const [cars, setCars] = useState([]);
   const [sort, setSort] = useState("");
+  const [manufacturer, setManufacturer] = useState("");
+  const [filteredCars, setFilteredCars] = useState([]);
 
   useEffect(() => {
     axios
@@ -18,6 +20,7 @@ const Products = () => {
       )
       .then(data => {
         setCars(data);
+        setFilteredCars(data);
       });
   }, []);
 
@@ -55,10 +58,24 @@ const Products = () => {
     setSort(e.target.value);
     if (e.target.value === "lowestprice") {
       cars.sort(lowest);
+      filteredCars.sort(lowest);
     } else if (e.target.value === "highestprice") {
       cars.sort(highest);
+      filteredCars.sort(highest);
     } else {
       cars.sort(sortId);
+      filteredCars.sort(sortId);
+    }
+  };
+
+  const handleManufacturerChange = e => {
+    setManufacturer(e.target.value);
+    if (e.target.value !== "") {
+      setFilteredCars(
+        cars.filter(a => a.Hersteller.indexOf(e.target.value) >= 0)
+      );
+    } else {
+      setFilteredCars(cars);
     }
   };
 
@@ -66,9 +83,12 @@ const Products = () => {
     <>
       <div className={styles.page}>
         <h1>Unser regelmäßig wechselndes Fahrzeugangebot</h1>
-        <Filter handleSortChange={handleSortChange} />
+        <Filter
+          handleSortChange={handleSortChange}
+          handleManufacturerChange={handleManufacturerChange}
+        />
         <div className={styles.container}>
-          {cars.map(car => {
+          {filteredCars.map(car => {
             return (
               <div className={styles.cardContainer} key={car.id}>
                 <div className={styles.card}>
