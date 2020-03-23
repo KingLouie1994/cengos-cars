@@ -1,11 +1,52 @@
 {
-  "cars": [
+  "products": [
     {
       "id": 1,
       "Hersteller": "Mercedes",
       "Modell": "G-Klasse 63 AMG",
       "KM": 0,
-      "Farbe": "Schwarz"
+      "Farbe": "Schwarz",
+      "Price": 140000
+    },
+    {
+      "id": 2,
+      "Hersteller": "Ferrari",
+      "Modell": "488 Pista Spider",
+      "KM": 0,
+      "Farbe": "Rot",
+      "Price": 400000
+    },
+    {
+      "id": 3,
+      "Hersteller": "Lamborghini",
+      "Modell": "Aventador SVJ",
+      "KM": 5000,
+      "Farbe": "Gelb",
+      "Price": 470000
+    },
+    {
+      "id": 4,
+      "Hersteller": "Mercedes",
+      "Modell": "SLS AMG",
+      "KM": 20000,
+      "Farbe": "Schwarz",
+      "Price": 275000
+    },
+    {
+      "id": 5,
+      "Hersteller": "Ferrari",
+      "Modell": "La Ferrari",
+      "KM": 100,
+      "Farbe": "Rot",
+      "Price": 2500000
+    },
+    {
+      "id": 6,
+      "Hersteller": "Mercedes",
+      "Modell": "SLS AMG",
+      "KM": 15000,
+      "Farbe": "Silber",
+      "Price": 260000
     }
   ]
 }

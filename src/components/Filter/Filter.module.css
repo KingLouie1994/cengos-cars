@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    width: 85%;
+    justify-content: space-between;
+    margin: 1.5%;
+}
+
+.select {
+    margin-left: 5px;
+}

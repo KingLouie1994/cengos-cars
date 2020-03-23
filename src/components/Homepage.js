@@ -1,12 +1,14 @@
 import React from "react";
-import ContentHome from "./ContentHome/ContentHome";
+import Greeting from "./Greeting/Greeting";
 import Carousel from "./Carousel/Carousel";
+import HomeContent from "./HomeContent/HomeContent";
 
 const Homepage = () => {
   return (
     <>
-      <ContentHome />
+      <Greeting />
       <Carousel />
+      <HomeContent />
     </>
   );
 };

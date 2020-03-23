@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./ContentHome.module.css";
+import styles from "./Greeting.module.css";
 
 const ContentHome = () => {
   return (
