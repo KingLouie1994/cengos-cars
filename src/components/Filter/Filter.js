@@ -12,7 +12,7 @@ const Filter = props => {
             onChange={props.handleSortChange}
             className={styles.select}
           >
-            <option value="">Select</option>
+            <option value="">...</option>
             <option value="lowestprice">Lowest to highest</option>
             <option value="highestprice">Highest to lowest</option>
           </select>

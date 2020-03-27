@@ -10,9 +10,9 @@ const Footer = () => {
           <h3 className={styles.footerHeading}>Kontakt</h3>
           <br />
           <br />
-          <p>Cengo's Traumautos GmbH</p>
+          <p>CengoCars GmbH</p>
           <p>Milchstrasse 22</p>
-          <p>220148 Hamburg</p>
+          <p>20148 Hamburg</p>
           <br />
           <br />
           <p>

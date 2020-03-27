@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { ProductsContext } from "./ProductsContext";
 import styles from "./Products.module.css";
 import Filter from "../Filter/Filter";
 
 const Products = () => {
-  const [cars, setCars] = useState([]);
   const [sort, setSort] = useState("");
   const [manufacturer, setManufacturer] = useState("");
   const [filteredCars, setFilteredCars] = useState([]);
+
+  const [cars, setCars] = useContext(ProductsContext);
 
   useEffect(() => {
     axios
@@ -19,7 +22,6 @@ const Products = () => {
           .then(data => data.products)
       )
       .then(data => {
-        setCars(data);
         setFilteredCars(data);
       });
   }, []);
@@ -91,18 +93,20 @@ const Products = () => {
           {filteredCars.map(car => {
             return (
               <div className={styles.cardContainer} key={car.id}>
-                <div className={styles.card}>
-                  <h3>Hersteller: {car.Hersteller}</h3>
-                  <p>Modell: {car.Modell}</p>
-                  <p>Kilometerstand: {car.KM}km</p>
-                  <p>Farbe: {car.Farbe}</p>
-                  <img
-                    src={`cars/${car.id}_1.jpeg`}
-                    alt={car.Modell}
-                    className={styles.imageOne}
-                  />
-                  <h4>Preis: {car.Price} Euro</h4>
-                </div>
+                <Link to={`/car/${car.id}`} className={styles.link}>
+                  <div className={styles.card}>
+                    <h3>Hersteller: {car.Hersteller}</h3>
+                    <p>Modell: {car.Modell}</p>
+                    <p>Kilometerstand: {car.KM}km</p>
+                    <p>Farbe: {car.Farbe}</p>
+                    <img
+                      src={`cars/${car.id}_1.jpeg`}
+                      alt={car.Modell}
+                      className={styles.imageOne}
+                    />
+                    <h4>Preis: {car.Price} Euro</h4>
+                  </div>
+                </Link>
               </div>
             );
           })}
