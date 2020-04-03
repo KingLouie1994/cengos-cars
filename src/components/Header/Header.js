@@ -7,8 +7,8 @@ const Header = () => {
     <div className={styles.container}>
       <h1 className={styles.logo}>I'll be a Logo!</h1>
       <span className={styles.flags}>
-        <Flag className={styles.languageFlag} country="de"/>
-        <Flag className={styles.languageFlag} country="gb"/>
+        <Flag className={styles.languageFlag} country="gb" />
+        <Flag className={styles.languageFlag} country="de" />
       </span>
     </div>
   );

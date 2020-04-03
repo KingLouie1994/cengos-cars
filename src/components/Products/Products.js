@@ -1,44 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { ProductsContext } from "./ProductsContext";
 import styles from "./Products.module.css";
 import Filter from "../Filter/Filter";
 
 const Products = () => {
-  const [cars, setCars] = useState([]);
   const [sort, setSort] = useState("");
   const [manufacturer, setManufacturer] = useState("");
   const [filteredCars, setFilteredCars] = useState([]);
 
+  const [cars, setCars] = useContext(ProductsContext);
+
   useEffect(() => {
     axios
-      .get("http://localhost:8000/products")
-      .then(res => res.json())
-      .catch(err =>
-        fetch("db.json")
-          .then(res => res.json())
-          .then(data => data.products)
-      )
-      .then(data => {
-        setCars(data);
-        setFilteredCars(data);
+      .get("https://cengo-cars.herokuapp.com/api/cars")
+      .then(res => {
+        setFilteredCars(res.data);
+      })
+      .catch(error => {
+        console.log(error);
       });
   }, []);
 
   const lowest = (a, b) => {
-    if (a.Price < b.Price) {
+    if (a.price < b.price) {
       return -1;
     }
-    if (a.Price > b.Price) {
+    if (a.price > b.price) {
       return 1;
     }
     return 0;
   };
 
   const highest = (a, b) => {
-    if (a.Price > b.Price) {
+    if (a.price > b.price) {
       return -1;
     }
-    if (a.Price < b.Price) {
+    if (a.price < b.price) {
       return 1;
     }
     return 0;
@@ -72,7 +71,7 @@ const Products = () => {
     setManufacturer(e.target.value);
     if (e.target.value !== "") {
       setFilteredCars(
-        cars.filter(a => a.Hersteller.indexOf(e.target.value) >= 0)
+        cars.filter(a => a.manufacturer.indexOf(e.target.value) >= 0)
       );
     } else {
       setFilteredCars(cars);
@@ -91,18 +90,20 @@ const Products = () => {
           {filteredCars.map(car => {
             return (
               <div className={styles.cardContainer} key={car.id}>
-                <div className={styles.card}>
-                  <h3>Hersteller: {car.Hersteller}</h3>
-                  <p>Modell: {car.Modell}</p>
-                  <p>Kilometerstand: {car.KM}km</p>
-                  <p>Farbe: {car.Farbe}</p>
-                  <img
-                    src={`cars/${car.id}_1.jpeg`}
-                    alt={car.Modell}
-                    className={styles.imageOne}
-                  />
-                  <h4>Preis: {car.Price} Euro</h4>
-                </div>
+                <Link to={`/car/${car.id}`} className={styles.link}>
+                  <div className={styles.card}>
+                    <h3>Hersteller: {car.manufacturer}</h3>
+                    <p>Modell: {car.model}</p>
+                    <p>Kilometerstand: {car.km}km</p>
+                    <p>Farbe: {car.color}</p>
+                    <img
+                      src={`cars/${car.id}_1.jpeg`}
+                      alt={car.Modell}
+                      className={styles.imageOne}
+                    />
+                    <h4>Preis: {car.price} Euro</h4>
+                  </div>
+                </Link>
               </div>
             );
           })}
