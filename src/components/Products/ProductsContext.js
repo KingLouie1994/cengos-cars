@@ -8,15 +8,12 @@ export const CarProvider = props => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/products")
-      .then(res => res.json())
-      .catch(err =>
-        fetch("db.json")
-          .then(res => res.json())
-          .then(data => data.products)
-      )
-      .then(data => {
-        setCars(data);
+      .get("https://cengo-cars.herokuapp.com/api/cars")
+      .then(res => {
+        setCars(res.data);
+      })
+      .catch(error => {
+        console.log(error);
       });
   }, []);
 
