@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Route } from "react-router-dom";
+import SpecialRoute from "./components/SpecialRoute";
 import styles from "./App.module.css";
 import Navbar from "./components/Navbar/Navbar";
 import Header from "./components/Header/Header";
@@ -11,7 +12,7 @@ import AboutUs from "./components/AboutUs";
 import Services from "./components/Services";
 import OneCar from "./components/Products/OneCar"
 
-const App = () => {
+function App() {
   const [cars, setCars] = useContext(ProductsContext);
 
   return (
@@ -23,10 +24,11 @@ const App = () => {
         <Route exact path="/caroffers" component={Cars} />
         <Route exact path="/services" component={Services} />
         <Route exact path="/about" component={AboutUs} />
-        {cars.map(car => {
+        {cars.map((car, index) => {
           return (
-            <Route
-              key={car.id}
+            <SpecialRoute
+              key={index}
+              carId={car.id}
               exact
               path={`/car/${car.id}`}
               component={OneCar}
