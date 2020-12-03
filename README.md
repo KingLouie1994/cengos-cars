@@ -1,3 +1,7 @@
+# Cengo-Cars Frontend
+
+This is the frontend of my first full stack projec. A platform to buy and sell cars.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
